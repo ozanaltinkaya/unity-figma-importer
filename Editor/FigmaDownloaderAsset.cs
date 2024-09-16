@@ -65,6 +65,16 @@ namespace Cdm.Figma.Editor
             get => _downloadImages;
             set => _downloadImages = value;
         }
+        
+        [SerializeField]
+        private bool _downloadThumbnail = false;
+
+        /// <inheritdoc cref="FigmaDownloader.downloadThumbnail"/>
+        public bool downloadThumbnail
+        {
+            get => _downloadThumbnail;
+            set => _downloadThumbnail = value;
+        }
 
         [SerializeField]
         private string _fileId;
@@ -125,7 +135,8 @@ namespace Cdm.Figma.Editor
             return new FigmaDownloader()
             {
                 downloadDependencies = downloadDependencies,
-                downloadImages = downloadImages
+                downloadImages = downloadImages,
+                downloadThumbnail = downloadThumbnail
             };
         }
         

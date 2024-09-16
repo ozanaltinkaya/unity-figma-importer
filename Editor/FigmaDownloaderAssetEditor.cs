@@ -20,6 +20,7 @@ namespace Cdm.Figma.Editor
         private SerializedProperty _assetPath;
         private SerializedProperty _downloadDependencies;
         private SerializedProperty _downloadImages;
+        private SerializedProperty _downloadThumbnail;
         private SerializedProperty _fileId;
         private SerializedProperty _fileVersion;
         private SerializedProperty _fileName;
@@ -42,6 +43,7 @@ namespace Cdm.Figma.Editor
             _assetPath = serializedObject.FindProperty("_assetPath");
             _assetExtension = serializedObject.FindProperty("_assetExtension");
             _downloadDependencies = serializedObject.FindProperty("_downloadDependencies");
+            _downloadThumbnail = serializedObject.FindProperty("_downloadThumbnail");
             _downloadImages = serializedObject.FindProperty("_downloadImages");
             _fileId = serializedObject.FindProperty("_fileId");
             _fileVersion = serializedObject.FindProperty("_fileVersion");
@@ -93,6 +95,8 @@ namespace Cdm.Figma.Editor
             EditorGUILayout.PropertyField(_assetExtension);
             EditorGUILayout.PropertyField(_downloadDependencies);
             EditorGUILayout.PropertyField(_downloadImages);
+            EditorGUILayout.PropertyField(_downloadThumbnail);
+
 
             EditorGUILayout.Separator();
             EditorGUILayout.Separator();

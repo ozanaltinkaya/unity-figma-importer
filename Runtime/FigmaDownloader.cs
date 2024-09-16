@@ -22,6 +22,12 @@ namespace Cdm.Figma
         /// If set <c>true</c>, all images present in image fills in a document are also downloaded.
         /// </summary>
         public bool downloadImages { get; set; } = true;
+        
+        /// <summary>
+        /// If set <c>true</c>, thumbnail will be downloaded.
+        /// </summary>
+        
+        public bool downloadThumbnail { get; set; } = true;
 
         public async Task<FigmaFile> DownloadFileAsync(
             string personalAccessToken, string fileId, string fileVersion = "",
@@ -63,7 +69,7 @@ namespace Cdm.Figma
 
             if (!isDependency)
             {
-                if (!string.IsNullOrEmpty(file.thumbnailUrl))
+                if (!string.IsNullOrEmpty(file.thumbnailUrl) && downloadThumbnail)
                 {
                     try
                     {
@@ -72,6 +78,7 @@ namespace Cdm.Figma
                         {
                             file.thumbnail = Convert.ToBase64String(thumbnail);
                         }
+                        
                     }
                     catch (HttpRequestException e)
                     {
